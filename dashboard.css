@@ -1,0 +1,25 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    height: 20vh;
+    gap: 10px;
+    border-radius: 20px;
+}
+
+.container button {
+    border-radius: 15px;
+    height: 70px;
+}
+
+body, .div {
+    height: 100vh;
+}
+.main{
+    display: flex;
+}
+.main button{
+    margin-top: 30px;
+    margin-left: 10px;
+    border-radius: 10px;
+    gap: 10px;
+}

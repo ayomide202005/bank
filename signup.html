@@ -14,25 +14,31 @@
         <h1 class="text-info">
             <marquee behavior="" direction="">you are currently on our signup page</marquee>
         </h1>
-        <input class="form-control" type="text" placeholder="first name" id="Fname">
         <input class="form-control mt-3" type="text" placeholder="your email" id="eMail">
         <input class="form-control mt-3" type="text" placeholder="password" id="passW">
-        <input class="form-control mt-3" type="text" placeholder="phone number" id="pnUm">
         <button class="btn btn-info form-control mt-3" onclick="signup()">signup</button>
     </div>
 
     <script>
-        var allusers = JSON.parse(localStorage.getItem("allusers"))
+        var allbank = JSON.parse(localStorage.getItem("allusers"))
+        
         function signup(){
-            if(Fname.value=="" || eMail.value=="" || passW.value=="" || pnUm.value==""){
+            let found = false
+            if(eMail.value=="" || passW.value==""){
                 alert("input your details")
             }else{
-                for (let index = 0; index < allusers.length; index++) {
-                    if(Fname.value==allusers[index].firstname && eMail.value==allusers[index].email && 
-                    passW.value==allusers[index].password && pnUm.value==allusers[index].pnUm){
-                        console.log(allusers)
+                for (let index = 0; index < allbank.length; index++) {
+                    if(eMail.value==allbank[index].email && 
+                    passW.value==allbank[index].password){
+                        // console.log(allusers)
+                        localStorage.setItem('currentUserIndex', index);
+                        found = true
                     }
                     
+                } if (found) {
+                        window.location.href = "dashboard.html"
+                } else {
+                    alert("Nooooo")
                 }
             }
         }
